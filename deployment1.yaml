@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web1
+
+  labels:
+    
+    app: web1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+
+      app: web1
+  template:
+    metadata:
+      name: web1
+      labels:
+        name: web1
+        app: web1
+    spec:
+      containers:
+        - name: tomcat-web1
+          image: nanuchavan037/target1
+          imagePullPolicy: IfNotPresent     
+          ports:
+            - containerPort: 8080
