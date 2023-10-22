@@ -1,0 +1,15 @@
+# Use a base image with Java and Tomcat pre-installed
+FROM tomcat:9-jre8
+
+# Set the working directory
+WORKDIR /usr/local/tomcat
+
+# Copy your WAR file to the Tomcat webapps directory
+COPY docker-java-sample-webapp-1.0-SNAPSHOT.war webapps/ROOT.war
+
+# Expose the port that Tomcat runs on
+EXPOSE 8080
+
+# Start Tomcat
+CMD ["catalina.sh", "run"]
+
